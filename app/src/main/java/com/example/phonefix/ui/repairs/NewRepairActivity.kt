@@ -12,31 +12,54 @@ import com.example.phonefix.databinding.ActivityNewRepairBinding
 class NewRepairActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNewRepairBinding
+    private var editRepairId: Int = -1
+    private var isEditMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewRepairBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        editRepairId = intent.getIntExtra(RepairDetailActivity.EXTRA_REPAIR_ID, -1)
+        isEditMode = editRepairId != -1
+
         setupToolbar()
         setupClientAutocomplete()
         setupSaveButton()
-    }
 
-    // ─── Toolbar ─────────────────────────────────────────────────
+        if (isEditMode) {
+            loadRepairForEditing()
+        }
+    }
 
     private fun setupToolbar() {
         binding.btnBack.setOnClickListener { finish() }
     }
 
-    // ─── Автозаповнення клієнта ──────────────────────────────────
+    private fun loadRepairForEditing() {
+        val repair = RepairRepository.getRepairById(editRepairId) ?: return
+        val client = RepairRepository.getClientById(repair.clientId)
+
+        binding.etBrand.setText(repair.phoneBrand)
+        binding.etModel.setText(repair.phoneModel)
+        binding.etImei.setText(repair.imei)
+        binding.etProblem.setText(repair.problemDescription)
+        binding.etWorkDone.setText(repair.workDone)
+        binding.etPrice.setText(repair.price.toLong().toString())
+
+        if (client != null) {
+            binding.etClient.setText(client.name)
+            binding.etClientPhone.setText(client.phone)
+        }
+
+        binding.btnSave.text = "Зберегти зміни"
+    }
 
     private fun setupClientAutocomplete() {
         val clientNames = RepairRepository.clients.map { it.name }
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, clientNames)
         binding.etClient.setAdapter(adapter)
 
-        // Коли обраний існуючий клієнт — підставити телефон
         binding.etClient.setOnItemClickListener { _, _, position, _ ->
             val selectedName = adapter.getItem(position) ?: return@setOnItemClickListener
             val client = RepairRepository.getClientByName(selectedName)
@@ -46,18 +69,15 @@ class NewRepairActivity : AppCompatActivity() {
             }
         }
 
-        // Якщо текст змінюється вручну — дозволити редагувати телефон
         binding.etClient.setOnDismissListener {
             val typedName = binding.etClient.text.toString().trim()
             val existing = RepairRepository.getClientByName(typedName)
             if (existing == null) {
                 binding.etClientPhone.isEnabled = true
-                binding.etClientPhone.setText("")
+                if (!isEditMode) binding.etClientPhone.setText("")
             }
         }
     }
-
-    // ─── Збереження ордеру ────────────────────────────────────────
 
     private fun setupSaveButton() {
         binding.btnSave.setOnClickListener {
@@ -83,28 +103,40 @@ class NewRepairActivity : AppCompatActivity() {
                 client = RepairRepository.addClient(clientName, clientPhone)
             }
 
-            // Створити ордер
-            val repair = PhoneRepair(
-                id = 0, // буде призначено в репозиторії
-                phoneBrand = brand,
-                phoneModel = model,
-                imei = imei,
-                problemDescription = problem,
-                workDone = workDone,
-                price = price,
-                status = RepairStatus.NEW,
-                clientId = client.id,
-                createdDate = System.currentTimeMillis()
-            )
+            if (isEditMode) {
+                // Редагування існуючого ордеру
+                val repair = RepairRepository.getRepairById(editRepairId)
+                if (repair != null) {
+                    repair.phoneBrand = brand
+                    repair.phoneModel = model
+                    repair.imei = imei
+                    repair.problemDescription = problem
+                    repair.workDone = workDone
+                    repair.price = price
+                    repair.clientId = client.id
+                }
+                Toast.makeText(this, "Ордер оновлено", Toast.LENGTH_SHORT).show()
+            } else {
+                // Створення нового ордеру
+                val repair = PhoneRepair(
+                    id = 0,
+                    phoneBrand = brand,
+                    phoneModel = model,
+                    imei = imei,
+                    problemDescription = problem,
+                    workDone = workDone,
+                    price = price,
+                    status = RepairStatus.NEW,
+                    clientId = client.id,
+                    createdDate = System.currentTimeMillis()
+                )
+                RepairRepository.addRepair(repair)
+                Toast.makeText(this, "Ордер створено", Toast.LENGTH_SHORT).show()
+            }
 
-            RepairRepository.addRepair(repair)
-
-            Toast.makeText(this, "Ордер створено", Toast.LENGTH_SHORT).show()
             finish()
         }
     }
-
-    // ─── Валідація ────────────────────────────────────────────────
 
     private fun validateFields(): Boolean {
         var isValid = true

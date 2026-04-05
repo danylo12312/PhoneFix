@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_variant"
+    android:orientation="vertical"
+    tools:context=".ui.clients.ClientDetailActivity">
+
+    <!-- ════════ Градієнтний заголовок ════════ -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_auth_gradient">
+
+        <!-- Декоративне коло -->
+        <View
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="-10dp"
+            android:background="@drawable/bg_circle_decorative" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="48dp"
+            android:paddingBottom="28dp">
+
+            <!-- Кнопка «Назад» (ліворуч) -->
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="start"
+                android:background="@drawable/bg_back_button_light"
+                android:padding="6dp"
+                android:src="@drawable/ic_arrow_back_white"
+                android:contentDescription="Назад" />
+
+            <!-- Аватар клієнта -->
+            <FrameLayout
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_client_avatar_large">
+
+                <TextView
+                    android:id="@+id/tvInitial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    tools:text="О" />
+            </FrameLayout>
+
+            <!-- Ім'я клієнта -->
+            <TextView
+                android:id="@+id/tvClientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="Олександр Петренко" />
+
+            <!-- Телефон -->
+            <TextView
+                android:id="@+id/tvClientPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#B3FFFFFF"
+                android:textSize="15sp"
+                tools:text="+380501234567" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- ════════ Заголовок списку ремонтів ════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/client_repairs_title"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvRepairsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_hint"
+            android:textSize="13sp"
+            tools:text="Ремонтів: 3" />
+    </LinearLayout>
+
+    <!-- ════════ Список ремонтів клієнта ════════ -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRepairs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_repair" />
+
+    <!-- Порожній стан -->
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp"
+        android:text="У цього клієнта ще немає ремонтів"
+        android:textColor="@color/text_hint"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+</LinearLayout>

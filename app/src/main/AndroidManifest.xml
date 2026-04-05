@@ -22,20 +22,25 @@
             </intent-filter>
         </activity>
 
-        <!-- Головний екран (з навігацією) -->
+        <!-- Головний екран -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
 
-        <!-- Створення нового ордеру -->
+        <!-- Створення / редагування ордеру -->
         <activity
             android:name=".ui.repairs.NewRepairActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Деталі ремонту (заготовка) -->
+        <!-- Деталі ремонту -->
         <activity
             android:name=".ui.repairs.RepairDetailActivity"
+            android:exported="false" />
+
+        <!-- Деталі клієнта -->
+        <activity
+            android:name=".ui.clients.ClientDetailActivity"
             android:exported="false" />
 
     </application>

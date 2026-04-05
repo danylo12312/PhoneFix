@@ -1,7 +1,11 @@
 package com.example.phonefix
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import com.example.phonefix.databinding.ActivityMainBinding
 import com.example.phonefix.ui.clients.ClientsFragment
@@ -22,8 +26,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupEdgeToEdge()
         setupFragments()
         setupBottomNavigation()
+    }
+
+    /**
+     * Обробка WindowInsets для Edge-to-Edge:
+     * додаємо системні відступи знизу до BottomNavigationView,
+     * щоб навігація не перекривалась жестовою смугою.
+     */
+    private fun setupEdgeToEdge() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            // Відступ зверху для статус-бару
+            binding.fragmentContainer.updatePadding(top = insets.top)
+
+            // Відступ знизу для навігаційної панелі (жестова смуга)
+            binding.bottomNav.updatePadding(bottom = insets.bottom)
+
+            WindowInsetsCompat.CONSUMED
+        }
     }
 
     private fun setupFragments() {
