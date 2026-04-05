@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Padding & Margin -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+
+    <!-- Card -->
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_headline">22sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_label">11sp</dimen>
+
+    <!-- Status badge -->
+    <dimen name="badge_radius">12dp</dimen>
+    <dimen name="badge_padding_h">12dp</dimen>
+    <dimen name="badge_padding_v">4dp</dimen>
+
+    <!-- FAB -->
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Bottom Navigation -->
+    <dimen name="bottom_nav_height">64dp</dimen>
+
+    <!-- Auth screen -->
+    <dimen name="auth_logo_size">68dp</dimen>
+    <dimen name="auth_logo_radius">18dp</dimen>
+    <dimen name="auth_field_radius">14dp</dimen>
+    <dimen name="auth_button_radius">14dp</dimen>
+    <dimen name="auth_button_height">52dp</dimen>
+
+</resources>

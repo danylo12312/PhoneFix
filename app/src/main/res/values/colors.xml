@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary palette (синьо-білий стиль з дизайну) -->
+    <color name="primary">#FF1565C0</color>           <!-- Blue 800 — основний -->
+    <color name="primary_dark">#FF0D47A1</color>       <!-- Blue 900 — статус-бар -->
+    <color name="primary_light">#FF1E88E5</color>      <!-- Blue 600 — акцент -->
+    <color name="primary_container">#FFE3F2FD</color>  <!-- Blue 50 — фон чіпів/бейджів -->
+    <color name="on_primary">#FFFFFFFF</color>
+
+    <!-- Backgrounds & surfaces -->
+    <color name="background">#FFFAFCFF</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_variant">#FFF4F6F9</color>
+    <color name="on_background">#FF1A1C1E</color>
+    <color name="on_surface">#FF1A1C1E</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FF1A1C1E</color>
+    <color name="text_secondary">#FF5F6368</color>
+    <color name="text_hint">#FF9AA0A6</color>
+
+    <!-- Dividers & outlines -->
+    <color name="divider">#FFE1E3E6</color>
+    <color name="outline">#FFE1E3E6</color>
+
+    <!-- Status: NEW -->
+    <color name="status_new">#FF1565C0</color>
+    <color name="status_new_bg">#FFE3F2FD</color>
+
+    <!-- Status: IN_PROGRESS -->
+    <color name="status_in_progress">#FFEF6C00</color>
+    <color name="status_in_progress_bg">#FFFFF3E0</color>
+
+    <!-- Status: DONE -->
+    <color name="status_done">#FF2E7D32</color>
+    <color name="status_done_bg">#FFE8F5E9</color>
+
+    <!-- Status: DELIVERED -->
+    <color name="status_delivered">#FF6A1B9A</color>
+    <color name="status_delivered_bg">#FFF3E5F5</color>
+
+    <!-- Error / destructive -->
+    <color name="error">#FFD32F2F</color>
+    <color name="error_bg">#FFFFEBEE</color>
+
+    <!-- Login gradient stops (для фону авторизації) -->
+    <color name="gradient_start">#FF0D47A1</color>
+    <color name="gradient_center">#FF1565C0</color>
+    <color name="gradient_end">#FF1E88E5</color>
+
+    <!-- Bottom Navigation -->
+    <color name="nav_active">#FF1565C0</color>
+    <color name="nav_inactive">#FF9AA0A6</color>
+
+    <!-- FAB -->
+    <color name="fab_background">#FF1565C0</color>
+    <color name="fab_icon">#FFFFFFFF</color>
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneFix</string>
+
+    <!-- Auth -->
+    <string name="auth_title">Сервісний центр</string>
+    <string name="auth_subtitle">PhoneFix</string>
+    <string name="hint_login">Логін</string>
+    <string name="hint_password">Пароль</string>
+    <string name="btn_login">Увійти</string>
+    <string name="error_empty_fields">Заповніть усі поля</string>
+    <string name="error_invalid_credentials">Невірний логін або пароль</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_repairs">Ремонти</string>
+    <string name="nav_clients">Клієнти</string>
+    <string name="nav_settings">Налаштування</string>
+
+    <!-- Repairs -->
+    <string name="new_repair_order">Новий ордер</string>
+    <string name="hint_phone_brand">Бренд телефону</string>
+    <string name="hint_phone_model">Модель пристрою</string>
+    <string name="hint_imei">IMEI</string>
+    <string name="hint_problem_description">Опис несправності</string>
+    <string name="hint_work_done">Виконані роботи</string>
+    <string name="hint_price">Ціна (грн)</string>
+    <string name="hint_client">Клієнт</string>
+    <string name="btn_save">Зберегти</string>
+    <string name="btn_cancel">Скасувати</string>
+    <string name="repair_details">Деталі ремонту</string>
+    <string name="search_hint">Пошук за брендом, моделлю або клієнтом</string>
+
+    <!-- Statuses -->
+    <string name="status_new">Новий</string>
+    <string name="status_in_progress">В роботі</string>
+    <string name="status_done">Готово</string>
+    <string name="status_delivered">Видано</string>
+    <string name="status_all">Всі</string>
+
+    <!-- Clients -->
+    <string name="client_details">Деталі клієнта</string>
+    <string name="hint_client_name">Ім\'я клієнта</string>
+    <string name="hint_client_phone">Номер телефону</string>
+    <string name="client_repairs_title">Ремонти клієнта</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_logout">Вийти з акаунту</string>
+    <string name="settings_export">Експорт даних</string>
+    <string name="settings_clear_data">Очистити всі дані</string>
+    <string name="settings_about">Про додаток</string>
+    <string name="settings_version">Версія 1.0</string>
+    <string name="settings_developer">Розробник</string>
+    <string name="dialog_logout_title">Вихід з акаунту</string>
+    <string name="dialog_logout_message">Ви дійсно хочете вийти з акаунту?</string>
+    <string name="dialog_clear_title">Очистити дані</string>
+    <string name="dialog_clear_message">Ви дійсно хочете видалити всі ремонти та клієнтів? Цю дію неможливо скасувати.</string>
+    <string name="dialog_confirm">Підтвердити</string>
+
+    <!-- Common -->
+    <string name="label_price_format">%s грн</string>
+    <string name="label_repairs_count">Ремонтів: %d</string>
+    <string name="no_repairs">Ремонтів поки немає</string>
+    <string name="no_clients">Клієнтів поки немає</string>
+
+    <!-- Sort -->
+    <string name="sort_date_new">За датою (нові)</string>
+    <string name="sort_date_old">За датою (старі)</string>
+    <string name="sort_price_high">За ціною (дорогі)</string>
+    <string name="sort_price_low">За ціною (дешеві)</string>
+    <string name="sort_brand_az">За брендом (А–Я)</string>
+
+</resources>
