@@ -16,11 +16,11 @@ object RepairRepository {
     private var nextClientId = 1
 
     val clients: ArrayList<Client> = arrayListOf(
-        Client(nextClientId++, "Олександр Петренко", "+380501234567"),
-        Client(nextClientId++, "Марія Коваленко", "+380672345678"),
-        Client(nextClientId++, "Іван Шевченко", "+380933456789"),
-        Client(nextClientId++, "Анна Бондаренко", "+380664567890"),
-        Client(nextClientId++, "Дмитро Мельник", "+380505678901")
+        Client(nextClientId++, "Іван Замулинець", "+380501234567"),
+        Client(nextClientId++, "Замир Іванович", "+380672345678"),
+        Client(nextClientId++, "Іван Кучаренко", "+380933456789"),
+        Client(nextClientId++, "Андрій Галич", "+380664567890"),
+        Client(nextClientId++, "Дмитро Петренко", "+380505678901")
     )
 
     fun addClient(name: String, phone: String): Client {

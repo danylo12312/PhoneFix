@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_auth_gradient"
+    tools:context=".ui.auth.LoginActivity">
+
+    <!-- Декоративне коло (верхнє праве, як у макеті) -->
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="-30dp"
+        android:background="@drawable/bg_circle_decorative" />
+
+    <!-- Декоративне коло (нижнє ліве) -->
+    <View
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="-20dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/bg_circle_decorative_small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:gravity="center_horizontal">
+
+        <!-- Логотип (квадрат із заокругленими кутами + іконка) -->
+        <FrameLayout
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:background="@drawable/bg_auth_logo">
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_phone_repair"
+                android:contentDescription="@null" />
+        </FrameLayout>
+
+        <!-- Назва сервісу -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/auth_title"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/auth_subtitle"
+            android:textColor="#B3FFFFFF"
+            android:textSize="16sp" />
+
+        <!-- Поле логіну -->
+        <EditText
+            android:id="@+id/etLogin"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/bg_auth_input"
+            android:drawableStart="@drawable/ic_person_outline"
+            android:drawablePadding="12dp"
+            android:hint="@string/hint_login"
+            android:inputType="text"
+            android:paddingHorizontal="16dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#80FFFFFF"
+            android:textSize="15sp"
+            android:importantForAutofill="no" />
+
+        <!-- Поле пароля -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_auth_input"
+            android:drawableStart="@drawable/ic_lock_outline"
+            android:drawablePadding="12dp"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:paddingHorizontal="16dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#80FFFFFF"
+            android:textSize="15sp"
+            android:importantForAutofill="no" />
+
+        <!-- Повідомлення про помилку -->
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#FFFF8A80"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:text="Невірний логін або пароль"
+            tools:visibility="visible" />
+
+        <!-- Кнопка входу -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@android:color/white"
+            android:text="@string/btn_login"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="14dp"
+            app:rippleColor="#331565C0"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+    </LinearLayout>
+
+</FrameLayout>
